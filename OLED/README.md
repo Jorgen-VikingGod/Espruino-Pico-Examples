@@ -1,8 +1,36 @@
 # OLED + Temperature Sensor
 ---------------------------
-two short examples of reading temperature by DS18B20 or DHT22 sensor and show it on OLED display (4-wire SPI) or (2-wire I2C).
+<table>
+  <tr>
+    <td colspan="2">
+Two short examples of reading temperature by DS18B20 or DHT22 sensor and show it on OLED display (4-wire SPI) or (2-wire I2C).
 Everything is wired directly with breadboard wires to the Espruino Pico board. No external power supply needed.
 Just Plugin to USB Port or power by USB battery pack.
+    </td>
+  </tr>
+  <tr style="vertical-align: top;">
+    <td width="50%">
+      <strong>Table of Contents</strong>
+      <ul>
+        <li><a href="#spi-oled--ds18b20-link">SPI OLED + DS18B20</a>
+          <ul>
+            <li><a href="#wiring-oled-display">Wiring OLED display</a></li>
+            <li><a href="#wiring-ds18b20-temperature-sensor">Wiring DS18B20 temperature sensor</a></li>
+          </ul>
+        </li>
+        <li><a href="#i2c-oled--dht22-link">I2C OLED + DHT22</a>
+          <ul>
+            <li><a href="#wiring-oled-display-1">Wiring OLED display</a></li>
+            <li><a href="#wiring-dht22-temperature-sensor">Wiring DS18B20 temperature sensor</a></li>
+          </ul>
+        </li>
+      </ul>
+    </td>
+    <td>
+      <img src="https://lh3.googleusercontent.com/5kzBBdqbfAH_kP5pFFmHzpx-b7Ce-YlZUQrmy_RlCZc=w983-h737-no" alt="Espruino Pico OLED temperature" />
+    </td>
+  </tr>
+</table>
 
 ![Espruino Pico OLED temperature](https://lh3.googleusercontent.com/5kzBBdqbfAH_kP5pFFmHzpx-b7Ce-YlZUQrmy_RlCZc=w983-h737-no)
 
