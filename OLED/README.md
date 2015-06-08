@@ -32,8 +32,6 @@ Just Plugin to USB Port or power by USB battery pack.
   </tr>
 </table>
 
-![Espruino Pico OLED temperature](https://lh3.googleusercontent.com/5kzBBdqbfAH_kP5pFFmHzpx-b7Ce-YlZUQrmy_RlCZc=w983-h737-no)
-
 ## SPI OLED + DS18B20 ([#link](OLED-SPI-TempDS18B20-MuMaLab.js))
 ----------------------------------------------------------------
 ### Wiring OLED display
