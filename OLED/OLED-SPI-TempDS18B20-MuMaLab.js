@@ -111,7 +111,7 @@ function updateTemp() {
   g.setColor(255,255,255);
   drawCenterText("Temperature",0);
   // draw current temperature 
-  drawCenterTextBlock(""+temperature+"'C", 16, 16);
+  drawCenterTextBlock(""+temperature+"'C", 16, 14);
   // draw MunichMakerLab logo
   drawLogo();
   // update display
