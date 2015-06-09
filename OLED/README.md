@@ -14,12 +14,14 @@ Just Plugin to USB Port or power by USB battery pack.
       <ul>
         <li><a href="#spi-oled--ds18b20-link">SPI OLED + DS18B20</a>
           <ul>
+            <li><a href="#hardware">Hardware</a></li>
             <li><a href="#wiring-oled-display">Wiring OLED display</a></li>
             <li><a href="#wiring-ds18b20-temperature-sensor">Wiring DS18B20 temperature sensor</a></li>
           </ul>
         </li>
         <li><a href="#i2c-oled--dht22-link">I2C OLED + DHT22</a>
           <ul>
+            <li><a href="#hardware-1">Hardware</a></li>
             <li><a href="#wiring-oled-display-1">Wiring OLED display</a></li>
             <li><a href="#wiring-dht22-temperature-sensor">Wiring DS18B20 temperature sensor</a></li>
           </ul>
@@ -34,6 +36,10 @@ Just Plugin to USB Port or power by USB battery pack.
 
 ## SPI OLED + DS18B20 ([#link](OLED-SPI-TempDS18B20-MuMaLab.js))
 ----------------------------------------------------------------
+### Hardware
+* SPI OLED display ([aliexpress](http://www.aliexpress.com/item/Yellow-Blue-0-96-SPI-Serial-128x64-OLED-LCD-Display-Module-3-5V-For-Arduino-51SCM/32265963016.html))
+* Temperature sensor ([aliexpress](http://www.aliexpress.com/item/1Pcs-New-DC5V-DS18B20-Digital-Temperature-Sensor-Module-for-Arduino-Hot-Sale/2054488934.html))
+
 ### Wiring OLED display
 | OLED | Pico | 
 | ---- |------|
@@ -53,6 +59,10 @@ Just Plugin to USB Port or power by USB battery pack.
 
 ## I2C OLED + DHT22 ([#link](OLED-I2C-TempDHT22-MuMaLab.js))
 ------------------------------------------------------------
+### Hardware
+* I2C OLED display ([aliexpress](http://www.aliexpress.com/item/Free-Shipping-0-96-Blue-New-10Pcs-lot-128X64-OLED-LCD-LED-Display-Module-For-Arduino/32359916218.html))
+* Temperature sensor ([aliexpress](http://www.aliexpress.com/item/1pcs-DHT22-digital-temperature-and-humidity-sensor-Temperature-and-humidity-module-AM2302-replace-SHT11-SHT15/1956275791.html))
+
 ### Wiring OLED display
 | OLED | Pico | 
 | ---- |------|
