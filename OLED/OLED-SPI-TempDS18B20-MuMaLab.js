@@ -14,8 +14,8 @@ function onInit() {
   require("Font6x8").add(Graphics);
   require("Font8x16").add(Graphics);
   // OLED display SPI 4wire
-  // GND = pico GND
-  // VCC = pico VDD 
+  // GND = pico A5
+  // VCC = pico A7 
   // SCL = pico B5
   // SDA = pico B6 
   // RST = pico B7 
@@ -87,11 +87,11 @@ function drawTemp() {
   drawRightString("50",54);
 }
 // draw temp. gauge 
-function drawTempGauge(newFuellevel) {
+function drawTempGauge(newTempLevel) {
   g.setColor(255,255,255);
-  g.drawLine(64,0, newFuellevel,  58);
-  g.drawLine(65,0, newFuellevel+1,58);
-  g.drawLine(66,0, newFuellevel+2,58);
+  g.drawLine(64,0, newTempLevel,  58);
+  g.drawLine(65,0, newTempLevel+1,58);
+  g.drawLine(66,0, newTempLevel+2,58);
 }
 // update screen and get temperature 
 function updateTemp() {
