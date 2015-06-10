@@ -12,7 +12,7 @@ Just Plugin to USB Port or power by USB battery pack.
     <td width="50%">
       <strong>Table of Contents</strong>
       <ul>
-        <li><a href="#spi-oled--rfid-rc522">SPI OLED + RFID RC522</a>
+        <li><a href="#spi-oled--rfid-rc522-link">SPI OLED + RFID RC522</a>
           <ul>
             <li><a href="#hardware">Hardware</a></li>
             <li><a href="#wiring-oled-display">Wiring OLED display</a></li>
