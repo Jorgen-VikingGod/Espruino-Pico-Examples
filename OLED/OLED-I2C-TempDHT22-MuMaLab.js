@@ -3,15 +3,15 @@ var humidity;
 var g;
 var tempSensor;
 // OLED display I2C 2-wire
-// GND = pico GND
-// VCC = pico VDD 
+// GND = pico A5
+// VCC = pico A7 
 // SDL = pico B6 
 // SDA = pico B7 
 I2C1.setup({scl:B6,sda:B7});
 
 function onInit() {
   clearInterval();
-  // Analog pin A8 to read temperature from Dallas DS18B20 sensor
+  // Analog pin A8 to read temperature from Dallas DHT22 sensor
   // temp sensor is powered by pins VDD and GND of pico
   tempSensor = require("DHT22").connect(A8);
   // set A5 and A7 pins to power the OLED display
@@ -21,7 +21,7 @@ function onInit() {
   require("Font6x8").add(Graphics);
   require("Font8x16").add(Graphics);
   // OLED driver and graphic library
-  // call updateTemp each 500 ms after initial OLED SPI 
+  // call updateTemp each 500 ms after initial OLED I2C 
   g = require("SSD1306").connect(I2C1, function() {
     setInterval(updateTemp, 500);
   });
@@ -85,11 +85,11 @@ function drawTemp() {
   drawRightString("50",54);
 }
 // draw temp. gauge 
-function drawTempGauge(newFuellevel) {
+function drawTempGauge(newTempLevel) {
   g.setColor(255,255,255);
-  g.drawLine(64,0, newFuellevel,  58);
-  g.drawLine(65,0, newFuellevel+1,58);
-  g.drawLine(66,0, newFuellevel+2,58);
+  g.drawLine(64,0, newTempLevel,  58);
+  g.drawLine(65,0, newTempLevel+1,58);
+  g.drawLine(66,0, newTempLevel+2,58);
 }
 // update screen and get temperature 
 function updateTemp() {
