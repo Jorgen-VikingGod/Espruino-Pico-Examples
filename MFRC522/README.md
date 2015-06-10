@@ -17,6 +17,7 @@ Just Plugin to USB Port or power by USB battery pack.
             <li><a href="#hardware">Hardware</a></li>
             <li><a href="#wiring-oled-display">Wiring OLED display</a></li>
             <li><a href="#wiring-rfid-rc522-module">Wiring RFID RC522 module</a></li>
+            <li><a href="#initialize-oled-display">Initialize OLED display</a></li>
             <li><a href="#initialize-rfid-module">Initialize RFID module</a></li>
             <li><a href="#read-rfid-cards">Read RFID cards</a></li>
           </ul>
@@ -54,6 +55,17 @@ Just Plugin to USB Port or power by USB battery pack.
 | SCK	      | B3   |
 | MISO      | B4   |
 | MOSI      | B5   |
+
+### Initialize OLED display
+```js
+var spi = new SPI();
+spi.setup({mosi: B15, sck:B13});
+// OLED driver and graphic library
+var g = require("SSD1306").connectSPI(spi, A6, B14, function() {
+  // display is connected...
+  // do something 
+});
+```
 
 ### Initialize RFID module
 We use the SPI1 port of the Espruino Pico board.
