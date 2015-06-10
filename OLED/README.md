@@ -17,6 +17,9 @@ Just Plugin to USB Port or power by USB battery pack.
             <li><a href="#hardware">Hardware</a></li>
             <li><a href="#wiring-oled-display">Wiring OLED display</a></li>
             <li><a href="#wiring-ds18b20-temperature-sensor">Wiring DS18B20 temperature sensor</a></li>
+            <li><a href="#initialize-oled-display">Initialize OLED display</a></li>
+            <li><a href="#initialize-ds18b20-temperature-sensor">Initialize DS18B20 temperature sensor</a></li>
+            <li><a href="#read-temperature">Read temperature</a></li>
           </ul>
         </li>
         <li><a href="#i2c-oled--dht22-link">I2C OLED + DHT22</a>
@@ -24,6 +27,9 @@ Just Plugin to USB Port or power by USB battery pack.
             <li><a href="#hardware-1">Hardware</a></li>
             <li><a href="#wiring-oled-display-1">Wiring OLED display</a></li>
             <li><a href="#wiring-dht22-temperature-sensor">Wiring DS18B20 temperature sensor</a></li>
+            <li><a href="#initialize-oled-display-1">Initialize OLED display</a></li>
+            <li><a href="#initialize-dht22-temperature-sensor">Initialize DHT22 temperature sensor</a></li>
+            <li><a href="#read-temperature-1">Read temperature</a></li>
           </ul>
         </li>
       </ul>
@@ -57,6 +63,31 @@ Just Plugin to USB Port or power by USB battery pack.
 | OUT     | A6   |
 | VCC     | VDD  |
 
+### Initialize OLED display
+```js
+var spi = new SPI();
+spi.setup({mosi: B6, sck:B5});
+// OLED driver and graphic library
+var g = require("SSD1306").connectSPI(spi, A8, B7, function() {
+  // display is connected...
+  // do something 
+});
+```
+
+### Initialize DS18B20 temperature sensor
+```js
+// Analog pin A6 to read temperature from Dallas DS18B20 sensor
+// temp sensor is powered by pins VDD and GND of pico
+var ow = new OneWire(A6);
+var tempSensor = require("DS18B20").connect(ow);
+```
+
+### Read temperature
+```js
+var temperature = tempSensor.getTemp();
+console.log("Temp is "+temperature);
+```
+
 ## I2C OLED + DHT22 ([#link](OLED-I2C-TempDHT22-MuMaLab.js))
 ------------------------------------------------------------
 ### Hardware
@@ -79,3 +110,32 @@ Just Plugin to USB Port or power by USB battery pack.
 | 3: N/C  | N/C  |
 | 4: GND  | GND  |
 > N/C = not connected
+
+
+### Initialize OLED display
+```js
+I2C1.setup({scl:B6,sda:B7});
+// OLED driver and graphic library
+var g = require("SSD1306").connect(I2C1, function() {
+  // display is connected...
+  // do something 
+});
+```
+
+### Initialize DHT22 temperature sensor
+```js
+// Analog pin A8 to read temperature from DHT22 sensor
+// temp sensor is powered by pins VDD and GND of pico
+var tempSensor = require("DHT22").connect(A8);
+```
+
+### Read temperature
+```js
+var temperature;
+var humidity;
+tempSensor.read(function(dht) {
+  temperature = dht.temp;
+  humidity = dht.rh;
+  console.log("Temp is "+temperature.toString()+" and RH is "+humidity.toString());
+});
+```
