@@ -17,6 +17,8 @@ Just Plugin to USB Port or power by USB battery pack.
             <li><a href="#hardware">Hardware</a></li>
             <li><a href="#wiring-oled-display">Wiring OLED display</a></li>
             <li><a href="#wiring-rfid-rc522-module">Wiring RFID RC522 module</a></li>
+            <li><a href="#initialize-rfid-module">Initialize RFID module</a></li>
+            <li><a href="#read-rfid-cards">Read RFID cards</a></li>
           </ul>
         </li>
       </ul>
@@ -52,3 +54,22 @@ Just Plugin to USB Port or power by USB battery pack.
 | SCK	      | B3   |
 | MISO      | B4   |
 | MOSI      | B5   |
+
+### Initialize RFID module
+We use the SPI1 port of the Espruino Pico board.
+```js
+// initial SPI1 for MRFC522 NFC module
+  SPI1.setup({sck:B3, miso:B4, mosi:B5 });
+  var nfc = require("MFRC522").connect(SPI1, B1/*CS*/);
+```
+
+### Read RFID cards
+```js
+// find cards
+nfc.findCards(function(card) {
+  print("Found card "+card);
+  card = JSON.stringify(card);
+  if (card=="[4,19,153,221]") digitalPulse(LED1,1,500);
+  if (card=="[0,121,205,3]")  digitalPulse(LED2,1,500);
+});
+```
